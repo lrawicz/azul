@@ -31,7 +31,7 @@ export function handler(socket:any, eventName:string, args:any, io:any){
         case "joinRoom":
             let user:user= args["user"]
             
-            console.log(`usuario${args[user]}`)
+            console.log(`usuario ${args["user"]}`)
         case "joinRoom":
             console.log(`${thisUser.name} joins ${args} `)
         case "startRound":

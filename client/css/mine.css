@@ -1,0 +1,6 @@
+    .hide{
+        display:none;
+    }
+    #loginError{
+        color:rgb(219, 28, 28);
+    }

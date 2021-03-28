@@ -9,14 +9,57 @@
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <!-- socket.io-->
+        <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"
+        integrity="sha384-DkkWv9oJFWLIydBXXjkBWnG1/fuVhw8YPBq37uvvD6WSYRFRqr21eY5Dg9ZhmWdy" crossorigin="anonymous"></script>
 
   </head>
   <body>
-    <h1>Hello, world!</h1>
-    
-    <!--socket.io-->
-      <script src="https://cdn.socket.io/4.0.0/socket.io.min.js" integrity="sha384-DkkWv9oJFWLIydBXXjkBWnG1/fuVhw8YPBq37uvvD6WSYRFRqr21eY5Dg9ZhmWdy" crossorigin="anonymous"></script>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-md-2"></div>
+    <div class="col-lg-6 col-md-8 login-box">
+      <div class="col-lg-12 login-key">
+        <i class="fa fa-key" aria-hidden="true"></i>
+      </div>
+      <div class="col-lg-12 login-title">
+        Login
+      </div>
+
+      <div class="col-lg-12 login-form">
+        <div class="col-lg-12 login-form">
+          <form>
+            <div class="form-group">
+              <label class="form-control-label">USERNAME</label>
+              <input type="text" class="form-control">
+            </div>
+
+
+            <div class="col-lg-12 loginbttm">
+              <div class="col-lg-6 login-btm login-text">
+                <div id="loginError">
+                </div>
+                <!-- Error Message -->
+              </div>
+              <div class="col-lg-6 login-btm login-button">
+              <button id="login-button" type="button" class="btn btn-outline-primary">LOGIN</button>              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-2"></div>
+    </div>
+  </div>
+
+
+
+  <!-- 
     <button onClick="sendMsg()" class="btn btn-primary" >Hit Me</button>
+  -->
+        <!-- Mine-->
+        <link rel="stylesheet" href="./css/login.css">
+        <link rel="stylesheet" href="./css/mine.css">
+        <script src="./script.js"></script>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -25,20 +68,5 @@
           integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
           integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-              <script>
-              const socket = io("http://localhost:3000", {
-                    withCredentials: true,
-                    extraHeaders: {
-                      "user": "pepe"
-                    }
-                  });
-                    function sendMsg() {
-                      socket.emit("message", "HELLO WORLD");
-                    }
-                          // client-side
-                    socket.on("nombre", (arg) => {
-                      console.log(arg); // world
-                    });
-              </script>
   </body>
 </html>
