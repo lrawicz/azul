@@ -1,58 +1,71 @@
-export interface user {
+export interface Iuser {
     name: string;
     conn: string;
 }
-
-
-
-export interface room {
-    users: user[];
+export interface Rooms{
+    [roomName: string]: Iuser[]
+}
+export interface Iroom {
+    users: Iuser[];
     name: string;
 }
-export interface jugada {
+export interface Ijugada {
     fabricIndex: number;
-    color: colorTiles;
+    color: string;
     row: number;
+    player: Iplayer;
 }
 
-export interface rowLeft{
+export interface IrowLeft{
     max:number
-    color:colorTiles
+    color:string
     used:number
 }
-export interface player {
-    rowLefts: rowLeft[];
-    boardRight: string[][];
-    user: user;
+export interface IgameMode{
+    colors:string []
+    privateBoardRows:number
+    rowsLefts: IrowLeft[];
+    rowsRight: IobjectiveTile[][];
+    hazard: string[]
+}
+export interface Iplayer {
+    rowsLefts: IrowLeft[];
+    rowsRight: IobjectiveTile[][];
+    user: Iuser;
     points: number;
     hazard: number;
     firstPlayerToken: boolean;
 }
-export interface game {
+
+export interface Igame {
     roomName: string;
-    players: player[];
-    phase: gamePhase;
-    fabrics: fabric[];
-    bag: colorTiles[];
+    players: Iplayer[];
+    phase: GamePhase;
+    fabrics: Ifabric[];
+    bag: Ifabric;
+    trash: Ifabric;
     turn: number; //playerIndex
+    mode: IgameMode;
+
+    pickTile: (jugada:Ijugada)=>void;
+    partialScore:()=>void;
+    finalScore: () => void;
 }
-enum gamePhase{
+export enum GamePhase{
     setup,
     picktiles,
     middlescore,
     finalscore,
 }
-export interface fabric {
-    tiles: tile[];
+export interface Ifabric {
+    tiles:Itile[]
+    add: (color: string, amount: number)=>void
+    remove: (color: string, amount?: number)=>number
 }
-export enum colorTiles{
-    null =0,
-    black =1,
-    blue = 2,
-    pink = 3,
-    red =4 ,
-    yellow= 5,
+export interface Itile{
+    color: string, amount: number
 }
-export interface tile {
-    amount: number;
+export interface IobjectiveTile{
+    color:string
+    active:boolean
 }

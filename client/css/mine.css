@@ -4,3 +4,33 @@
     #loginError{
         color:rgb(219, 28, 28);
     }
+    .lobby{
+        background: green;
+        position:absolute;
+        z-index:2;
+        top:0;
+        height: 100%;
+        width: 100%;
+    }
+    .game{
+        background: brown;
+        position:absolute;
+        z-index:3;
+        top:0;
+        height: 100%;
+        width: 100%;
+    }
+    .publicBoard{
+        width: 50%;
+        height: 100%;
+        position:absolute ;
+        background-color: cyan;
+    }
+    .privateBoard{
+        width: 50%;
+        height: 100%;
+        left:50%;
+        position: absolute;
+        background-color: darkorchid;
+
+    }

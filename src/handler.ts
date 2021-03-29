@@ -1,111 +1,127 @@
-import { user, room, jugada, 
-    tile, 
-    player, game, fabric, colorTiles, rowLeft}  from "./interfaces"
-export function sumar():number{
-    return (2)
-}
-let rooms:room[] = []
-let users:user[] = []
-let games:game[] =[]
-export function handler(socket:any, eventName:string, args:any, io:any){
-    let thisUser:user;
-    switch(eventName){
+//import { Room } from "socket.io"
+    import { Iuser, 
+    Iroom, Igame, Ijugada
+        }  from "./interfaces"
+import {Game} from "./classes"
 
-        case "setUsername":
-            if (users.filter((x) => x.name == args).length > 0) {
-                socket.emit('userExists', args + ' username is taken! Try some other username.');
+let rooms:Iroom[] 
+let games:any= {}
+
+function joinRoom(socket: any, eventName: string, data: any, io: any){
+    /*
+    data.userName
+    data.roomName
+    */ 
+
+
+    /*
+    let thisUser: Iuser = { name: data.userName, conn: socket.id };
+    let socketIdRooms: Set<string> = io.of("/").adapter.rooms.get(data.roomName);
+    if (socketIdRooms != undefined && socketIdRooms.has(socket.id)) {
+        console.log("doubleganger??")
+    } else {
+        //create room if doesn't exist
+        if (socketIdRooms != undefined) {
+            socket.join(data.roomName);
+            rooms.push(thisUser)
+
+        } else {
+            if (socketIdRooms.size == 5) {
+                console.log("numero de jugadores exedidos")
             } else {
-                thisUser = {
-                    name: args,
-                    conn: socket.id
+                let hasUser: User[] = rooms[data.roomName].filter((user) => { user.name == thisUser.name })
+                if (hasUser.length == 0) {
+                    rooms[data.roomName].push(thisUser)
+                } else {
+                    //ToDO: check if user exist and was disconected
+
+                    //if(!socketIdRooms.has(hasUser[0].conn)){
+                    //    rooms[data.roomName] = rooms[data.roomName].map((x)=>{
+                    //           if(x.name==thisUser.name){
+                    //              x.conn = thisUser.conn
+                    //         }
+                    //      })
+                    //}
                 }
-                users.push(thisUser);
-                console.log(`${socket.id} is ${args}`);
-                //socket.emit('userSet', { username: data });
+                socket.join(data.roomName);
             }
-            
-        case "createRoom":
-            let tempRoom:room = {name:args, users:[thisUser]}
-            rooms.push(tempRoom )
-            console.log(`sala ${args} creada` )
+
+        }
+        data.userName
+        console.log(`${data.userName} join ${data.roomName}`)
+        socket.emit("joinRoomSucced")
+    }
+
+    */
+}
+function pickTile(socket: any, eventName: string, data: any, io: any) {
+    /*
+    data.jugada:jugada
+    data.roomName:string
+    */
+    games[data.roomName].pickTile(data.jugada)
+}
+function startGame(socket: any, eventName: string, data: any, io: any){
+    /* 
+    data.mode:string
+    data.room:Iroom    
+    */
+
+    let mode:string ="normal"
+    let room:Iroom = {name:"salaDe5",users:[]}
+    let tempUser:Iuser = {conn:"asd",name:"zxc"};
+    room.users.push(tempUser)
+    room.users.push(tempUser)
+    room.users.push(tempUser)
+    room.users.push(tempUser)
+    let a:Igame
+
+    games[room.name] = new Game(mode,room)
+    a = games[room.name]
+    let pickColor:string = a.fabrics[1].tiles.filter((x)=>{return x.amount>0})[0].color
+    let tmpJugada:Ijugada = {
+        color: pickColor,
+        fabricIndex:1,
+        player:a.players[a.turn],
+        row:3
+    }
+
+    a = games[room.name]
+    console.log(a.fabrics[0].tiles)
+    a.pickTile(tmpJugada)
+    console.log(a.fabrics[0].tiles)
+
+
+}
+export function handler(
+    socket:any, eventName:string, args:any, io:any){
+    let data:any = args[0]
+    switch(eventName){
         case "joinRoom":
-            let user:user= args["user"]
-            
-            console.log(`usuario ${args["user"]}`)
-        case "joinRoom":
-            console.log(`${thisUser.name} joins ${args} `)
-        case "startRound":
+            joinRoom(socket, eventName, data, io)
+            break
+
+
         case "startGame":
-            
-            let bag:colorTiles[]
-            for (let index = 0; index < 20; index++) {
-                bag.push(colorTiles.black)
-                bag.push(colorTiles.blue)
-                bag.push(colorTiles.pink)
-                bag.push(colorTiles.red)
-                bag.push(colorTiles.yellow)
-            }
+            startGame(socket, eventName, data, io)
+            break
+
         case "pickTile":
-
-            let player:player = games[args["gameId"]]
-                .players.filter(
-                    (player:player)=>
-                    {player.user.conn ==socket.id})[0]
-
-            let fabrics:fabric[] = games[args["gameId"]].fabrics
-            let jugada:jugada = args["jugada"]
-            let rowId:number = jugada.row
-            let amount: number = fabrics[jugada.fabricIndex].tiles[jugada.color].amount
-            let row:rowLeft = player.rowLefts[rowId]
-            let rest: tile[] = fabrics[jugada.fabricIndex].tiles
-            rest[jugada.color].amount = 0
-            row.color =  row.color == 0 ? jugada.color: row.color
-
-            io.on
-            if (row.color == jugada.color ){
-            
-                //public board
-                    if (args["fabricIndex"] != 0){
-                        for (let color in colorTiles) {
-                            games[args["gameId"]].fabrics[0]
-                                .tiles[color].amount
-                                 += rest[color].amount
-                        }
-                    }
-                games[args["gameId"]]
-                    .fabrics[args["fabricIndex"]] = { tiles: [] }
-                
-                //private board
-                    let total:number = row.used + amount 
-                    if (total > row.max){
-                        row.used = row.max
-                        player.hazard += total - row.max
-                    }else{
-                        row.used += amount
-                    }
-                    player.rowLefts[rowId] = row
-
-            }else{
-                socket.emit('error', 
-                'jugada invalida');
-            }
-            io.to(games[args["gameId"]].roomName).emit("played",
-            {
-                userName:player.user,
-                jugada: jugada,
-            })
+            pickTile(socket, eventName, data, io)
+            break
         case "chat":
-            console.log(args);
+            console.log(data);
             socket.emit("nombre", "Pepe");
+            break
         case "disconnect":
             console.log("se murio porque:")
-            console.log(args)
-            users = users.filter((x) => x.conn != socket.id)
+            console.log(data)
+            break
         default:
             console.log("/////")
             console.log("¿por que paso por aca?")
             console.log(eventName)
             console.log("/////")
-
+            break
     }
 }

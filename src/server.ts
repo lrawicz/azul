@@ -16,17 +16,6 @@ io.on("connection", function (socket: any) {
     socket.onAny((eventName: string, ...args: any) => {
         handler(socket, eventName, args, io )
     })
-    io.of("/").adapter.on("create-room", (room:string) => {
-        //console.log(`room ${room} was created`);
-    });
-    io.of("/").adapter.on("join-room", (room:string, id:string) => {
-        console.log(`socket ${id} has joined room ${room}`);
-        const rooms = io.of("/").adapter.rooms;
-        console.log("/////")
-        console.log(rooms)
-        console.log("/////")
-
-    });
 
 
 })
