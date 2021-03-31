@@ -63,6 +63,9 @@ to {left: 100%;}
     left:50%;
     position: absolute;
     background-color: darkorchid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 #public_board{
@@ -86,11 +89,7 @@ to {left: 100%;}
         transition: transform 0.5s ease;
 }
 
-/*#logowrap{
-    left: 50%;
-position: relative;
-top: 50%;
-}*/
+
 
 #logowrap{
     text-align:center;
@@ -239,4 +238,11 @@ top: 50%;
         display: block;
         opacity: 20%;
     }
+}
+
+.board_right{
+    width: 45vw;
+    height: 40vw;
+    background-color: green;
+    position: relative;
 }
