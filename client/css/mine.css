@@ -1,19 +1,13 @@
 :root {
-  --one:0deg;
-  --two:120deg;
-  --three:240deg;
   --giroBase:calc(360deg/7);
   --distancia:300px;
   --fabricSize:150px;
-  --fabricsAmount:7 ;
+  --fabricsAmount:7;
+  --tileSize:40px;
 }
 
 body {
   overflow: hidden;
-}
-
-.hide {
-  display: none;
 }
 
 #loginError {
@@ -126,19 +120,6 @@ top: 50%;
   position: relative;
 }
 
-#logowrap > div div {
-  position: absolute;
-}
-
-.fabric {
-  top: calc(calc(var(--fabricSize)/2)*-1);
-  left: calc(calc(var(--fabricSize)/2)*-1);
-  width: var(--fabricSize);
-  height: var(--fabricSize);
-  border-radius: 20%;
-}
-
-/*#logowrap*/
 .green {
   width: 70px;
   height: 70px;
@@ -150,508 +131,385 @@ top: 50%;
   border-radius: 100%;
 }
 
+/*.fabric>div{
+    position: relative;
+}*/
 .fabric1_show {
-  background-color: yellow;
-  -webkit-animation: fabric1_show 5s;
+  -webkit-animation: fabric1_show 2s;
   -webkit-animation-iteration-count: 1;
-  transform: rotate(calc(var(--giroBase)*10)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*10)*-1));
+  transform: rotate(calc(calc(var(--giroBase)*1)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*1)*-1));
 }
 
 .fabric1_hide {
-  background-color: yellow;
-  -webkit-animation: fabric1_hide 5s;
+  -webkit-animation: fabric1_hide 2s;
   -webkit-animation-iteration-count: 1;
 }
 
 @-webkit-keyframes fabric1_show {
   from {
-    transform: rotate(calc(var(--giroBase)*calc(0*1))) translate(0px) rotate(calc(var(--giroBase)*calc(0*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(-3*1))) translate(0px) rotate(calc(var(--giroBase)*calc(-3*-1)));
   }
   to {
-    transform: rotate(calc(var(--giroBase)*10)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*10)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*1)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*1)*-1));
   }
 }
 @-webkit-keyframes fabric1_hide {
   to {
-    transform: rotate(calc(var(--giroBase)*calc(0*1))) translate(0px) rotate(calc(var(--giroBase)*calc(0*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(-3*1))) translate(0px) rotate(calc(var(--giroBase)*calc(-3*-1)));
   }
   from {
-    transform: rotate(calc(var(--giroBase)*10)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*10)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*1)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*1)*-1));
   }
 }
 .fabric2_show {
-  background-color: yellow;
-  -webkit-animation: fabric2_show 5s;
+  -webkit-animation: fabric2_show 2s;
   -webkit-animation-iteration-count: 1;
-  transform: rotate(calc(var(--giroBase)*9)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*9)*-1));
+  transform: rotate(calc(calc(var(--giroBase)*2)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*2)*-1));
 }
 
 .fabric2_hide {
-  background-color: yellow;
-  -webkit-animation: fabric2_hide 5s;
+  -webkit-animation: fabric2_hide 2s;
   -webkit-animation-iteration-count: 1;
 }
 
 @-webkit-keyframes fabric2_show {
   from {
-    transform: rotate(calc(var(--giroBase)*calc(1*1))) translate(0px) rotate(calc(var(--giroBase)*calc(1*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(-2*1))) translate(0px) rotate(calc(var(--giroBase)*calc(-2*-1)));
   }
   to {
-    transform: rotate(calc(var(--giroBase)*9)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*9)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*2)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*2)*-1));
   }
 }
 @-webkit-keyframes fabric2_hide {
   to {
-    transform: rotate(calc(var(--giroBase)*calc(1*1))) translate(0px) rotate(calc(var(--giroBase)*calc(1*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(-2*1))) translate(0px) rotate(calc(var(--giroBase)*calc(-2*-1)));
   }
   from {
-    transform: rotate(calc(var(--giroBase)*9)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*9)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*2)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*2)*-1));
   }
 }
 .fabric3_show {
-  background-color: yellow;
-  -webkit-animation: fabric3_show 5s;
+  -webkit-animation: fabric3_show 2s;
   -webkit-animation-iteration-count: 1;
-  transform: rotate(calc(var(--giroBase)*8)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*8)*-1));
+  transform: rotate(calc(calc(var(--giroBase)*3)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*3)*-1));
 }
 
 .fabric3_hide {
-  background-color: yellow;
-  -webkit-animation: fabric3_hide 5s;
+  -webkit-animation: fabric3_hide 2s;
   -webkit-animation-iteration-count: 1;
 }
 
 @-webkit-keyframes fabric3_show {
   from {
-    transform: rotate(calc(var(--giroBase)*calc(2*1))) translate(0px) rotate(calc(var(--giroBase)*calc(2*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(-1*1))) translate(0px) rotate(calc(var(--giroBase)*calc(-1*-1)));
   }
   to {
-    transform: rotate(calc(var(--giroBase)*8)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*8)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*3)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*3)*-1));
   }
 }
 @-webkit-keyframes fabric3_hide {
   to {
-    transform: rotate(calc(var(--giroBase)*calc(2*1))) translate(0px) rotate(calc(var(--giroBase)*calc(2*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(-1*1))) translate(0px) rotate(calc(var(--giroBase)*calc(-1*-1)));
   }
   from {
-    transform: rotate(calc(var(--giroBase)*8)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*8)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*3)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*3)*-1));
   }
 }
 .fabric4_show {
-  background-color: yellow;
-  -webkit-animation: fabric4_show 5s;
+  -webkit-animation: fabric4_show 2s;
   -webkit-animation-iteration-count: 1;
-  transform: rotate(calc(var(--giroBase)*7)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*7)*-1));
+  transform: rotate(calc(calc(var(--giroBase)*4)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*4)*-1));
 }
 
 .fabric4_hide {
-  background-color: yellow;
-  -webkit-animation: fabric4_hide 5s;
+  -webkit-animation: fabric4_hide 2s;
   -webkit-animation-iteration-count: 1;
 }
 
 @-webkit-keyframes fabric4_show {
   from {
-    transform: rotate(calc(var(--giroBase)*calc(3*1))) translate(0px) rotate(calc(var(--giroBase)*calc(3*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(0*1))) translate(0px) rotate(calc(var(--giroBase)*calc(0*-1)));
   }
   to {
-    transform: rotate(calc(var(--giroBase)*7)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*7)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*4)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*4)*-1));
   }
 }
 @-webkit-keyframes fabric4_hide {
   to {
-    transform: rotate(calc(var(--giroBase)*calc(3*1))) translate(0px) rotate(calc(var(--giroBase)*calc(3*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(0*1))) translate(0px) rotate(calc(var(--giroBase)*calc(0*-1)));
   }
   from {
-    transform: rotate(calc(var(--giroBase)*7)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*7)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*4)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*4)*-1));
   }
 }
 .fabric5_show {
-  background-color: yellow;
-  -webkit-animation: fabric5_show 5s;
+  -webkit-animation: fabric5_show 2s;
   -webkit-animation-iteration-count: 1;
-  transform: rotate(calc(var(--giroBase)*6)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*6)*-1));
+  transform: rotate(calc(calc(var(--giroBase)*5)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*5)*-1));
 }
 
 .fabric5_hide {
-  background-color: yellow;
-  -webkit-animation: fabric5_hide 5s;
+  -webkit-animation: fabric5_hide 2s;
   -webkit-animation-iteration-count: 1;
 }
 
 @-webkit-keyframes fabric5_show {
   from {
-    transform: rotate(calc(var(--giroBase)*calc(4*1))) translate(0px) rotate(calc(var(--giroBase)*calc(4*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(1*1))) translate(0px) rotate(calc(var(--giroBase)*calc(1*-1)));
   }
   to {
-    transform: rotate(calc(var(--giroBase)*6)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*6)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*5)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*5)*-1));
   }
 }
 @-webkit-keyframes fabric5_hide {
   to {
-    transform: rotate(calc(var(--giroBase)*calc(4*1))) translate(0px) rotate(calc(var(--giroBase)*calc(4*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(1*1))) translate(0px) rotate(calc(var(--giroBase)*calc(1*-1)));
   }
   from {
-    transform: rotate(calc(var(--giroBase)*6)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*6)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*5)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*5)*-1));
   }
 }
 .fabric6_show {
-  background-color: yellow;
-  -webkit-animation: fabric6_show 5s;
+  -webkit-animation: fabric6_show 2s;
   -webkit-animation-iteration-count: 1;
-  transform: rotate(calc(var(--giroBase)*5)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*5)*-1));
+  transform: rotate(calc(calc(var(--giroBase)*6)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*6)*-1));
 }
 
 .fabric6_hide {
-  background-color: yellow;
-  -webkit-animation: fabric6_hide 5s;
+  -webkit-animation: fabric6_hide 2s;
   -webkit-animation-iteration-count: 1;
 }
 
 @-webkit-keyframes fabric6_show {
   from {
-    transform: rotate(calc(var(--giroBase)*calc(5*1))) translate(0px) rotate(calc(var(--giroBase)*calc(5*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(2*1))) translate(0px) rotate(calc(var(--giroBase)*calc(2*-1)));
   }
   to {
-    transform: rotate(calc(var(--giroBase)*5)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*5)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*6)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*6)*-1));
   }
 }
 @-webkit-keyframes fabric6_hide {
   to {
-    transform: rotate(calc(var(--giroBase)*calc(5*1))) translate(0px) rotate(calc(var(--giroBase)*calc(5*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(2*1))) translate(0px) rotate(calc(var(--giroBase)*calc(2*-1)));
   }
   from {
-    transform: rotate(calc(var(--giroBase)*5)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*5)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*6)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*6)*-1));
   }
 }
 .fabric7_show {
-  background-color: yellow;
-  -webkit-animation: fabric7_show 5s;
+  -webkit-animation: fabric7_show 2s;
   -webkit-animation-iteration-count: 1;
-  transform: rotate(calc(var(--giroBase)*4)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*4)*-1));
+  transform: rotate(calc(calc(var(--giroBase)*7)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*7)*-1));
 }
 
 .fabric7_hide {
-  background-color: yellow;
-  -webkit-animation: fabric7_hide 5s;
+  -webkit-animation: fabric7_hide 2s;
   -webkit-animation-iteration-count: 1;
 }
 
 @-webkit-keyframes fabric7_show {
   from {
-    transform: rotate(calc(var(--giroBase)*calc(6*1))) translate(0px) rotate(calc(var(--giroBase)*calc(6*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(3*1))) translate(0px) rotate(calc(var(--giroBase)*calc(3*-1)));
   }
   to {
-    transform: rotate(calc(var(--giroBase)*4)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*4)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*7)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*7)*-1));
   }
 }
 @-webkit-keyframes fabric7_hide {
   to {
-    transform: rotate(calc(var(--giroBase)*calc(6*1))) translate(0px) rotate(calc(var(--giroBase)*calc(6*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(3*1))) translate(0px) rotate(calc(var(--giroBase)*calc(3*-1)));
   }
   from {
-    transform: rotate(calc(var(--giroBase)*4)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*4)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*7)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*7)*-1));
   }
 }
 .fabric8_show {
-  background-color: yellow;
-  -webkit-animation: fabric8_show 5s;
+  -webkit-animation: fabric8_show 2s;
   -webkit-animation-iteration-count: 1;
-  transform: rotate(calc(var(--giroBase)*3)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*3)*-1));
+  transform: rotate(calc(calc(var(--giroBase)*8)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*8)*-1));
 }
 
 .fabric8_hide {
-  background-color: yellow;
-  -webkit-animation: fabric8_hide 5s;
+  -webkit-animation: fabric8_hide 2s;
   -webkit-animation-iteration-count: 1;
 }
 
 @-webkit-keyframes fabric8_show {
   from {
-    transform: rotate(calc(var(--giroBase)*calc(7*1))) translate(0px) rotate(calc(var(--giroBase)*calc(7*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(4*1))) translate(0px) rotate(calc(var(--giroBase)*calc(4*-1)));
   }
   to {
-    transform: rotate(calc(var(--giroBase)*3)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*3)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*8)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*8)*-1));
   }
 }
 @-webkit-keyframes fabric8_hide {
   to {
-    transform: rotate(calc(var(--giroBase)*calc(7*1))) translate(0px) rotate(calc(var(--giroBase)*calc(7*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(4*1))) translate(0px) rotate(calc(var(--giroBase)*calc(4*-1)));
   }
   from {
-    transform: rotate(calc(var(--giroBase)*3)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*3)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*8)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*8)*-1));
   }
 }
 .fabric9_show {
-  background-color: yellow;
-  -webkit-animation: fabric9_show 5s;
+  -webkit-animation: fabric9_show 2s;
   -webkit-animation-iteration-count: 1;
-  transform: rotate(calc(var(--giroBase)*2)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*2)*-1));
+  transform: rotate(calc(calc(var(--giroBase)*9)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*9)*-1));
 }
 
 .fabric9_hide {
-  background-color: yellow;
-  -webkit-animation: fabric9_hide 5s;
+  -webkit-animation: fabric9_hide 2s;
   -webkit-animation-iteration-count: 1;
 }
 
 @-webkit-keyframes fabric9_show {
   from {
-    transform: rotate(calc(var(--giroBase)*calc(8*1))) translate(0px) rotate(calc(var(--giroBase)*calc(8*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(5*1))) translate(0px) rotate(calc(var(--giroBase)*calc(5*-1)));
   }
   to {
-    transform: rotate(calc(var(--giroBase)*2)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*2)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*9)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*9)*-1));
   }
 }
 @-webkit-keyframes fabric9_hide {
   to {
-    transform: rotate(calc(var(--giroBase)*calc(8*1))) translate(0px) rotate(calc(var(--giroBase)*calc(8*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(5*1))) translate(0px) rotate(calc(var(--giroBase)*calc(5*-1)));
   }
   from {
-    transform: rotate(calc(var(--giroBase)*2)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*2)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*9)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*9)*-1));
   }
 }
 .fabric10_show {
-  background-color: yellow;
-  -webkit-animation: fabric10_show 5s;
+  -webkit-animation: fabric10_show 2s;
   -webkit-animation-iteration-count: 1;
-  transform: rotate(calc(var(--giroBase)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*1)*-1));
+  transform: rotate(calc(calc(var(--giroBase)*10)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*10)*-1));
 }
 
 .fabric10_hide {
-  background-color: yellow;
-  -webkit-animation: fabric10_hide 5s;
+  -webkit-animation: fabric10_hide 2s;
   -webkit-animation-iteration-count: 1;
 }
 
 @-webkit-keyframes fabric10_show {
   from {
-    transform: rotate(calc(var(--giroBase)*calc(9*1))) translate(0px) rotate(calc(var(--giroBase)*calc(9*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(6*1))) translate(0px) rotate(calc(var(--giroBase)*calc(6*-1)));
   }
   to {
-    transform: rotate(calc(var(--giroBase)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*1)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*10)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*10)*-1));
   }
 }
 @-webkit-keyframes fabric10_hide {
   to {
-    transform: rotate(calc(var(--giroBase)*calc(9*1))) translate(0px) rotate(calc(var(--giroBase)*calc(9*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(6*1))) translate(0px) rotate(calc(var(--giroBase)*calc(6*-1)));
   }
   from {
-    transform: rotate(calc(var(--giroBase)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*1)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*10)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*10)*-1));
   }
 }
 .fabric11_show {
-  background-color: yellow;
-  -webkit-animation: fabric11_show 5s;
+  -webkit-animation: fabric11_show 2s;
   -webkit-animation-iteration-count: 1;
-  transform: rotate(calc(var(--giroBase)*0)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*0)*-1));
+  transform: rotate(calc(calc(var(--giroBase)*11)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*11)*-1));
 }
 
 .fabric11_hide {
-  background-color: yellow;
-  -webkit-animation: fabric11_hide 5s;
+  -webkit-animation: fabric11_hide 2s;
   -webkit-animation-iteration-count: 1;
 }
 
 @-webkit-keyframes fabric11_show {
   from {
-    transform: rotate(calc(var(--giroBase)*calc(10*1))) translate(0px) rotate(calc(var(--giroBase)*calc(10*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(7*1))) translate(0px) rotate(calc(var(--giroBase)*calc(7*-1)));
   }
   to {
-    transform: rotate(calc(var(--giroBase)*0)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*0)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*11)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*11)*-1));
   }
 }
 @-webkit-keyframes fabric11_hide {
   to {
-    transform: rotate(calc(var(--giroBase)*calc(10*1))) translate(0px) rotate(calc(var(--giroBase)*calc(10*-1)));
+    transform: rotate(calc(var(--giroBase)*calc(7*1))) translate(0px) rotate(calc(var(--giroBase)*calc(7*-1)));
   }
   from {
-    transform: rotate(calc(var(--giroBase)*0)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*0)*-1));
+    transform: rotate(calc(calc(var(--giroBase)*11)*1)) translate(var(--distancia)) rotate(calc(calc(var(--giroBase)*11)*-1));
   }
 }
-/*
-.fabric1_show{
-    background-color:yellow;
-    -webkit-animation:  fabric01_show 5s;
-    -webkit-animation-iteration-count: 1;
-    transform: rotate(calc(calc(var(--giroBase)*0)*1))
-                translate(var(--distancia))
-                rotate(calc(calc(var(--giroBase)*0)*-1));
+.hide {
+  display: none;
 }
 
-
-.fabric2_show{
-    background-color:blue;
-    -webkit-animation: fabric02_show 5s;
-    -webkit-animation-iteration-count: 1;
-    transform: rotate(calc(calc(var(--giroBase)*1)*1))
-                translate(var(--distancia))
-                rotate(calc(calc(var(--giroBase)*1)*-1));
-}
-.fabric03_show{
-    background-color:orange;
-    -webkit-animation: fabric03_show 5s;
-    -webkit-animation-iteration-count: 1;
-    transform: rotate(calc(calc(var(--giroBase)*2)*1))
-                translate(var(--distancia))
-                rotate(calc(calc(var(--giroBase)*2)*-1));
-}
-.fabric04_show{
-    background-color:orange;
-    -webkit-animation: fabric04_show 5s;
-    -webkit-animation-iteration-count: 1;
-    transform: rotate(calc(calc(var(--giroBase)*3)*1))
-                translate(var(--distancia))
-                rotate(calc(calc(var(--giroBase)*3)*-1));
+.tile {
+  width: var(--tileSize);
+  height: var(--tileSize);
+  border-radius: 100%;
 }
 
-.fabric05_show{
-    background-color:orange;
-    -webkit-animation: fabric05_show 5s;
-    -webkit-animation-iteration-count: 1;
-    transform: rotate(calc(calc(var(--giroBase)*4)*1))
-                translate(var(--distancia))
-                rotate(calc(calc(var(--giroBase)*4)*-1));
-}
-.fabric01_hide{
-    background-color:yellow;
-    -webkit-animation:  fabric01_hide 5s;
-    -webkit-animation-iteration-count: 1;
-
+.tileRed {
+  /*background-image: url("images/paper.gif");*/
+  background-color: red;
 }
 
-.fabric02_hide{
-    background-color:yellow;
-    -webkit-animation:  fabric01_hide 5s;
-    -webkit-animation-iteration-count: 1;
-
+.tileBlue {
+  background-color: blue;
 }
 
-.fabric03_hide{
-    background-color:yellow;
-    -webkit-animation:  fabric01_hide 5s;
-    -webkit-animation-iteration-count: 1;
-
+.tileYellow {
+  background-color: yellow;
 }
 
-.fabric04_hide{
-    background-color:yellow;
-    -webkit-animation:  fabric01_hide 5s;
-    -webkit-animation-iteration-count: 1;
-
+.tilePink {
+  /*background-image: url("images/paper.gif");*/
+  background-color: pink;
 }
 
-.fabric05_hide{
-    background-color:yellow;
-    -webkit-animation:  fabric01_hide 5s;
-    -webkit-animation-iteration-count: 1;
-
+.tileBlack {
+  /*background-image: url("images/paper.gif");*/
+  background-color: black;
 }
 
-.fabric06_hide{
-    background-color:yellow;
-    -webkit-animation:  fabric01_hide 5s;
-    -webkit-animation-iteration-count: 1;
-
+.fabric {
+  grid-column-gap: 100px;
+  grid-row-gap: 100px;
+  background-color: #690de0;
+  position: absolute;
+  top: calc(calc(var(--fabricSize)/2)*-1);
+  left: calc(calc(var(--fabricSize)/2)*-1);
+  width: var(--fabricSize);
+  height: var(--fabricSize);
+  border-radius: 100%;
 }
 
-.fabric07_hide{
-    background-color:yellow;
-    -webkit-animation:  fabric01_hide 5s;
-    -webkit-animation-iteration-count: 1;
-
-}
-.fabric08_hide{
-    background-color:yellow;
-    -webkit-animation:  fabric01_hide 5s;
-    -webkit-animation-iteration-count: 1;
-
+.fabric_inside {
+  background: transparent;
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  display: grid;
+  grid-template-columns: auto auto;
+  left: 8%;
+  top: 8%;
 }
 
-.fabric09_hide{
-    background-color:yellow;
-    -webkit-animation:  fabric01_hide 5s;
-    -webkit-animation-iteration-count: 1;
-
-}
-.fabric10_hide{
-    background-color:yellow;
-    -webkit-animation:  fabric01_hide 5s;
-    -webkit-animation-iteration-count: 1;
-
-}
-.fabric11_hide{
-    background-color:yellow;
-    -webkit-animation:  fabric01_hide 5s;
-    -webkit-animation-iteration-count: 1;
-
+.doubleSize {
+  width: calc(var(--tileSize)*1.3);
+  height: calc(var(--tileSize)*1.3);
 }
 
-@-webkit-keyframes fabric01_show
-{
-    from {
-        transform: rotate(calc(calc(var(--giroBase)*2)*1))
-                   translate(0px) 
-                   rotate(calc(calc(var(--giroBase)*2)*-1));
-    }
-	to {
-		transform: rotate(calc(calc(var(--giroBase)*0)*1))
-		           translate(var(--distancia))
-		           rotate(calc(calc(var(--giroBase)*0)*-1));
-	}
+.transparent {
+  -webkit-animation: fadeInFromNone 2s ease;
+  -webkit-animation-iteration-count: infinite;
 }
-@-webkit-keyframes fabric02_show
-{
-    from {
-        transform: rotate(calc(calc(var(--giroBase)*3)*1))
-                   translate(0px) 
-                   rotate(calc(calc(var(--giroBase)*3)*-1));
-    }
-	to {
-		transform: rotate(calc(calc(var(--giroBase)*1)*1))
-		           translate(var(--distancia))
-		           rotate(calc(calc(var(--giroBase)*1)*-1));
-	}
+
+@-webkit-keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 20%;
+  }
+  50% {
+    display: block;
+    opacity: 85%;
+  }
+  100% {
+    display: block;
+    opacity: 20%;
+  }
 }
-@-webkit-keyframes fabric03_show
-{
-    from {
-        transform: rotate(calc(calc(var(--giroBase)*4)*1))
-                   translate(0px) 
-                   rotate(calc(calc(var(--giroBase)*4)*-1));
-    }
-	to {
-		transform: rotate(calc(calc(var(--giroBase)*2)*1))
-		           translate(var(--distancia))
-		           rotate(calc(calc(var(--giroBase)*2)*-1));
-	}
-}
-@-webkit-keyframes fabric04_show
-{
-    from {
-        transform: rotate(calc(calc(var(--giroBase)*5)*1))
-                   translate(0px) 
-                   rotate(calc(calc(var(--giroBase)*5)*-1));
-    }
-	to {
-		transform: rotate(calc(calc(var(--giroBase)*3)*1))
-		           translate(var(--distancia))
-		           rotate(calc(calc(var(--giroBase)*3)*-1));
-	}
-}
-@-webkit-keyframes fabric05_show
-{
-    from {
-        transform: rotate(calc(calc(var(--giroBase)*6)*1))
-                   translate(0px) 
-                   rotate(calc(calc(var(--giroBase)*6)*-1));
-    }
-	to {
-		transform: rotate(calc(calc(var(--giroBase)*4)*1))
-		           translate(var(--distancia))
-		           rotate(calc(calc(var(--giroBase)*4)*-1));
-	}
-}
-*/
 
 /*# sourceMappingURL=mine.css.map */

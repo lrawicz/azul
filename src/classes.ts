@@ -41,11 +41,11 @@ export class Player implements Iplayer{
     rowsRight: IobjectiveTile[][];
     user: Iuser;
     points: number;
-    hazard: number;
+    hazard: string[];
     firstPlayerToken: boolean;
     constructor(user:Iuser, gameMode:IgameMode){
         this.points = 0
-        this.hazard = 0
+        this.hazard = []
         this.firstPlayerToken = false
         this.user = user
         this.rowsLefts = gameMode.rowsLefts
@@ -211,8 +211,7 @@ export class Game implements Igame{
             //private board
             let total: number = row.used + amount
             if (total > row.max) {
-                row.used = row.max
-                jugada.player.hazard += total - row.max
+                jugada.player.hazard.push(jugada.color)
             } else {
                 row.used += amount
             }

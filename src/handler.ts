@@ -1,6 +1,6 @@
 //import { Room } from "socket.io"
 import { Iuser, Irooms, Igames, Ijugada}  from "./interfaces"
-import {Game, Room} from "./classes"
+import {Game, Room, Player} from "./classes"
 
 let rooms: Irooms ={}
 let games: Igames ={}
@@ -72,10 +72,10 @@ function pickTile(socket: any, eventName: string, data: any, io: any) {
     data.roomName:string
     */
    //check if is the correct user
-    let correctUser:Iuser[] =games["room-" + data.roomName].players.filter((x)=>{
+    let correctPlayer:Player[] =games["room-" + data.roomName].players.filter((x)=>{
         x.user.conn == socket.id
     })
-    if(correctUser.length>0){
+    if (correctPlayer.length>0){
         games["room-" + data.roomName].pickTile(data.jugada)
     }
 }

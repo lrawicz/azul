@@ -1,3 +1,5 @@
+import { Fabric } from "./classes";
+
 export interface Iuser {
     name: string;
     conn: string;
@@ -45,7 +47,7 @@ export interface Iplayer {
     rowsRight: IobjectiveTile[][];
     user: Iuser;
     points: number;
-    hazard: Itile[];
+    hazard: string[];
     firstPlayerToken: boolean;
 }
 
