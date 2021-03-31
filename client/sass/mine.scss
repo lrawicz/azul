@@ -1,9 +1,10 @@
 :root{
     --giroBase:calc(360deg/7);
-    --distancia:300px;
-    --fabricSize:150px;
+    --distancia:15vw;
+    //--distancia:300px;
+    --fabricSize:10vw;
     --fabricsAmount:7;
-    --tileSize:40px;
+    --tileSize:3vw;
 }
 body{
     overflow: hidden;
