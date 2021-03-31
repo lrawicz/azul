@@ -12,13 +12,12 @@ const io = require("socket.io")(http, {
 io.on("connection", function (socket: any) {
     //console.dir(socket);
     console.log(`socket connected: ${socket.id}`);
-
     socket.onAny((eventName: string, ...args: any) => {
         handler(socket, eventName, args, io )
     })
-
-
 })
+
+io.on("disconnect", function (socket: any) {})
 
 const server = http.listen(3000, function () {
     console.log("listening on *:3000");

@@ -5,9 +5,21 @@ export interface Iuser {
 export interface Rooms{
     [roomName: string]: Iuser[]
 }
+export interface Irooms {
+    [index: string]: Iroom
+}
+export interface Igames {
+    [index: string]: Igame
+}
 export interface Iroom {
     users: Iuser[];
     name: string;
+    addUser(user:Iuser): void
+    removeUser(user: Iuser): void
+    nameUserExist(name:string): boolean
+    getUserByName(name: string):(Iuser | null)
+    getUserByConn(conn: string): (Iuser | null)
+    updateUser(user: Iuser): void
 }
 export interface Ijugada {
     fabricIndex: number;
@@ -33,7 +45,7 @@ export interface Iplayer {
     rowsRight: IobjectiveTile[][];
     user: Iuser;
     points: number;
-    hazard: number;
+    hazard: Itile[];
     firstPlayerToken: boolean;
 }
 
@@ -50,6 +62,7 @@ export interface Igame {
     pickTile: (jugada:Ijugada)=>void;
     partialScore:()=>void;
     finalScore: () => void;
+    updateUser(user: Iuser): void
 }
 export enum GamePhase{
     setup,

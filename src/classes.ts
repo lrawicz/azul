@@ -4,6 +4,38 @@ import {
     GamePhase, Igame, Iroom,
     Ifabric, Itile, IrowLeft, IobjectiveTile, IgameMode
 } from "./interfaces"
+
+export class Room implements Iroom{
+    users: Iuser[]=[];
+    name: string="";
+    constructor(name:string) {
+        this.name=name
+    }
+    addUser(user:Iuser):void{
+        this.users.push(user)
+    }
+    removeUser(user: Iuser):void{
+        this.users = this.users.filter((x)=>{x.conn!=user.conn})
+    }
+    nameUserExist(name:string):boolean{
+        let tmp:Iuser[] = this.users.filter((x) => { x.name == name })
+        return tmp.length>0?true:false
+    }
+    getUserByName(name:string):(Iuser|null){
+        let tmp:Iuser[] =  this.users.filter((x)=>{x.name ==name})
+        return tmp.length>0?tmp[0]:null
+    }
+    getUserByConn(conn: string): (Iuser | null){
+        let tmp: Iuser[] = this.users.filter((x) => { x.conn == conn })
+        return tmp.length > 0 ? tmp[0] : null
+     }
+    updateUser(user:Iuser):void{
+        this.users = this.users.map((x) => { 
+            x.conn= (x.name == user.name )? user.conn:x.conn;
+            return x
+        })
+    }
+}
 export class Player implements Iplayer{
     rowsLefts: IrowLeft[];
     rowsRight: IobjectiveTile[][];
@@ -130,6 +162,10 @@ export class Game implements Igame{
         for (let fabricI = 1; fabricI < cantidadFabrics; fabricI++) {
             for (let index = 0; index < amountPerFabric; index++) {
                 tempBag.tiles = this.bag.tiles.filter((x) => { return x.amount > 0 })
+                if (tempBag.tiles.length ==0){
+                    this.moveTrashToBag()
+                    tempBag.tiles = this.bag.tiles
+                }
                 RND = Math.floor(Math.random() * (tempBag.tiles.length - 1) + 1)
                 RNDcolor = tempBag.tiles[RND].color
                 this.bag.tiles = this.bag.tiles.map((x)=>{
@@ -145,6 +181,12 @@ export class Game implements Igame{
             }
         }
         
+    }
+    moveTrashToBag():void{
+        this.trash.tiles.map((x)=>{
+            this.bag.add(x.color,x.amount)
+            this.trash.remove(x.color, x.amount)
+        })
     }
     pickTile(jugada:Ijugada):object{
 
@@ -238,5 +280,11 @@ export class Game implements Igame{
     }
     finalScore():void{
 
+    }
+    updateUser(user:Iuser):void{
+        this.players.map((x)=>{
+            x.user.conn =x.user.name == user.name? user.conn:x.user.conn
+            return x
+        })
     }
 }

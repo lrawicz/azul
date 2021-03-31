@@ -10,13 +10,13 @@ function sendMsg() {
 
 function joinRoom(){
     let userName = document.getElementById("loginUserName").value;
-    let roomName ="asd"
+    let roomName = document.getElementById("loginRoomName").value;
+    console.log(userName, roomName)
     //let roomName = document.getElementById("loginRoom").value;
-    console.log("asd")
-    socket.emit("startGame",
+    socket.emit("joinRoom",
     {
         userName:userName,
-        roomName: `room-${roomName}`
+        roomName:roomName
     }
     );
 }
@@ -27,16 +27,43 @@ function startGame() {
 socket.on("nombre", (arg) => {
     console.log(arg); // world
 });
-socket.on("joinRoomSucced",()=>{
-    console.log("WTF")
-    document.getElementById("loginPage").classList.add("hide")
+socket.on("RoomUserAdd",()=>{
+    
 })
+function show_fabrics(number){
+    let fabrics = document.getElementsByClassName("fabric")
+    let giroBase = `${360/number}deg`
+    for (let index = 0; index < 11; index++) {
+        fabrics[index].classList.add("hide");
 
+    }
+    document.documentElement.style.setProperty('--giroBase', giroBase);
+    for (let index = 0; index < number; index++) {
+         fabrics[index].classList.remove("hide");
+        
+    }
+}
+socket.on("join", (arg) => {
+    console.log(arg); // world
+    openGame()
+});
+function openGame(){
+    let game = document.getElementsByClassName("game")[0]
+    game.style.left = "0%"
+    game.style.animationName = "openGame";
+}
+function closeGame(){
+    let game =document.getElementsByClassName("game")[0]
+    game.style.left = "100%"
+    game.style.animationName= "closeGame";
 
-
+}
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("login-button").onclick= () =>{
-        joinRoom();
-        
+        //openGame()
+        joinRoom(); 
+    }
+    document.getElementById("game_border_left").onclick = () => {
+        closeGame()
     }
 })
