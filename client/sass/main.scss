@@ -1,0 +1,117 @@
+@import 'room.scss','fabrics.scss';
+@import 'privateBoard.scss';
+
+
+body{
+    overflow: hidden;
+}
+
+#loginError{
+    color:rgb(219, 28, 28);
+}
+.lobby{
+    background: green;
+    position:absolute;
+    z-index:2;
+    top:0;
+    height: 100%;
+    width: 100%;
+}
+@keyframes openGame {
+from {left: 100%;}
+to {left: 0%;}
+}
+@keyframes closeGame {
+from {left: 0%;}
+to {left: 100%;}
+}
+@keyframes resizeRoom {
+from {left: 0%;}
+to {left: 100%;}
+}
+.game{
+    background: brown;
+    position:absolute;
+    z-index:3;
+    top:0;
+    left:0%;
+    height: 100%;
+    width: 100%;
+    animation-duration: 1s;
+    animation-iteration-count:1;
+    animation-timing-function: ease-in-out;
+}
+.game_left{
+    width: 50%;
+    height: 100%;
+    position:absolute ;
+    background-color: cyan;
+    display:flex;
+}
+#game_border_left{
+    height: 100%;
+    width: 5%;
+    background-color: grey;
+}
+
+
+
+
+
+
+
+
+.green{
+    width:70px;
+    height:70px;
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    /*transform: translate(-50%,-50%);*/
+    background-color:green;
+    border-radius: 100%;
+}
+
+/*.fabric>div{
+    position: relative;
+}*/
+
+
+    .hide{
+        display:none;
+    }
+    .tile{
+        width: var(--tileSize);
+        height: var(--tileSize);
+        border-radius: 100%;
+    }
+
+  
+    .doubleSize{
+        width: calc(var(--tileSize)*1.3);
+        height: calc(var(--tileSize)*1.3);
+    }
+    .transparent{
+        -webkit-animation: fadeInFromNone 2s ease;
+        -webkit-animation-iteration-count: infinite;
+
+
+    }
+
+    @-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 20%;
+    }
+
+    50% {
+        display: block;
+        opacity: 85%;
+    }
+
+    100% {
+        display: block;
+        opacity: 20%;
+    }
+}
+

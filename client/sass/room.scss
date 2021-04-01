@@ -1,0 +1,17 @@
+
+.room{
+    z-index:4;
+    left:50%;
+    top:50%;
+    width: 400px;
+    height: 400px;
+    position:absolute;
+    transform: translate(-50%,-50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 10%;
+    display: none;
+}
+.room:hover{
+        transform: scale(0.50, 1) translate(-100%,-50%);
+        transition: transform 0.5s ease;
+}

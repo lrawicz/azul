@@ -1,0 +1,106 @@
+.game_right{
+    width: 50%;
+    height: 100%;
+    left:50%;
+    position: absolute;
+    background-color: darkorchid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.private_board{
+    width: 45vw;
+    height: 40vw;
+    background-color: green;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.PB_Left{
+    height: 70%;
+    background-color: black;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 2fr)0.5fr;  
+    grid-template-rows: repeat(5,  1fr);  
+      grid-gap: 10px;
+}
+.PB_Right{
+    height: 70%;
+    background-color: yellow;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 2fr)0.5fr;  
+    grid-template-rows: repeat(5,  2fr);  
+    grid-gap: 10px;
+}
+.PB_Right_transp{
+    opacity: 25%;
+}
+/*.gray_layer{
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: gray;
+    opacity: 80%;
+
+}*/
+.PB_divisor{
+    width: 1vw;
+    height: 100%;
+    position:relative;
+    background-color: fuchsia;
+}
+.PB_RightTile{
+    width: 2.4vw;
+    height: 2.4vw;
+    background-color:brown;
+}
+.PB_RightTile::content{
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: gray;
+    opacity: 80%;
+}
+@for $i from 1 through 25 {
+.PB_Left#{$i}{
+    width: 2.4vw;
+    height: 2.4vw;
+    border-radius: 10%;
+    background-color:transparent;
+    
+    //mayor a 20
+    @if $i >20{
+        background-color: grey;
+    }
+    //mayor a 16 menor a 21
+    @if $i >16{
+        @if $i <21{
+            background-color: grey;
+        }
+    }
+    //mayor a 12 menor a 16
+    @if $i >12{
+        @if $i <16{
+            background-color: grey;
+        }
+    }
+    //mayor a 8 menor a 11
+    @if $i >8{
+        @if $i <11{
+            background-color: grey;
+        }
+    }
+    //igual a 5
+    @if $i ==5{
+            background-color: grey;
+    }
+
+}
+}
